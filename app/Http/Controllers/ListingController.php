@@ -10,7 +10,7 @@ class ListingController extends Controller
     // 全ての求人を一覧で表示する
     public function index() {
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tags']))->get()
+            'listings' => Listing::latest()->filter(request(['tag']))->get()
         ]);
     }
 
