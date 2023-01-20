@@ -29,5 +29,8 @@ use App\Models\Listing;
 // 全ての求人を表示する
 Route::get('/', [ListingController::class, 'index']);
 
+// 求人の新規登録画面を表示する
+Route::get('/listings/create', [ListingController::class, 'create']);
+
 // 求人の詳細を表示する
 Route::get('/listings/{listing}', [ListingController::class, 'show']);

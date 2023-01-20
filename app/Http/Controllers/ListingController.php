@@ -20,4 +20,9 @@ class ListingController extends Controller
             'listing' => $listing
         ]);
     }
+
+    // 求人の新規登録画面を表示する
+    public function create() {
+        return view('listings.create');
+    }
 }
