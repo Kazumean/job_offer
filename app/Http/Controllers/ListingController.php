@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ListingController extends Controller
 {
@@ -24,5 +25,22 @@ class ListingController extends Controller
     // 求人の新規登録画面を表示する
     public function create() {
         return view('listings.create');
+    }
+
+    // 入力された求人を追加登録する
+    public function store(Request $request) {
+
+        // バリデーション
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => ['required', Rule::unique('listings', 'company')],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required',
+        ]);
+
+        return redirect('/');
     }
 }
