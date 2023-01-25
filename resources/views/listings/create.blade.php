@@ -72,9 +72,7 @@
 
             <div class="mb-6">
                 <label for="description" class="inline-block text-lg mb-2">お仕事詳細</label>
-                <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
-                    placeholder="Include tasks, requirements, salary, etc">
-            </textarea>
+                <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10" placeholder="具体的な業務内容やご要望、給与等を記入してください。"></textarea>
 
             @error('description')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
