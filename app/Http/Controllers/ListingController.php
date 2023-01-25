@@ -41,8 +41,12 @@ class ListingController extends Controller
             'description' => 'required',
         ]);
 
+        // 送信されたデータをデータベースに保存する
         Listing::create($formFields);
 
-        return redirect('/');
+        // 登録完了時にフラッシュメッセージを表示する
+        // Session::flash('message', '求人が追加されました。');
+
+        return redirect('/')->with('message', '求人が追加されました。');
     }
 }
