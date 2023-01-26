@@ -38,6 +38,9 @@ Route::post('/listings', [ListingController::class, 'store']);
 // 求人情報編集画面を表示する
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 
+// 求人情報を編集・更新する
+Route::put('listings/{listing}', [ListingController::class, 'update']);
+
 
 // 求人の詳細を表示する
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
