@@ -35,7 +35,8 @@ Route::get('/listings/create', [ListingController::class, 'create']);
 // 求人の登録処理をする
 Route::post('/listings', [ListingController::class, 'store']);
 
-
+// 求人情報編集画面を表示する
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 
 
 // 求人の詳細を表示する

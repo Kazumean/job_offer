@@ -54,4 +54,11 @@ class ListingController extends Controller
 
         return redirect('/')->with('message', '求人が追加されました。');
     }
+
+    // 求人情報編集画面を表示する
+    public function edit(Listing $listing) {
+        return view('listings.edit', [
+            'listing' => $listing
+        ]);
+    }
 }
