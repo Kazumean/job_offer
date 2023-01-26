@@ -41,6 +41,11 @@ class ListingController extends Controller
             'description' => 'required',
         ]);
 
+        // 画像データがあれば、public/logosに保存する
+        if($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
         // 送信されたデータをデータベースに保存する
         Listing::create($formFields);
 

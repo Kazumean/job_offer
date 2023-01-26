@@ -161,6 +161,7 @@ return [
         'website' => '会社ホームページ',
         'tags' => 'タグ',
         'description' => '仕事内容詳細',
+        'logo' => '会社ロゴ',
     ],
 
 ];
