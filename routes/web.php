@@ -41,6 +41,9 @@ Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 // 求人情報を編集・更新する
 Route::put('listings/{listing}', [ListingController::class, 'update']);
 
+// 求人を削除する
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+
 
 // 求人の詳細を表示する
 Route::get('/listings/{listing}', [ListingController::class, 'show']);

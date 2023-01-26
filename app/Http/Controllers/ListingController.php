@@ -86,4 +86,11 @@ class ListingController extends Controller
 
         return back()->with('message', '求人情報が更新されました。');
     }
+
+    // 求人を削除する
+    public function destroy(Listing $listing) {
+        $listing->delete();
+
+        return redirect('/')->with('message', '求人が削除されました。');
+    }
 }

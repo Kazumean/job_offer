@@ -35,6 +35,12 @@
                     <a href="/listings/{{ $listing->id }}/edit">
                         <i class="fa-solid fa-pencil"></i> 編集する
                     </a>
+
+                    <form method="POST" action="/listings/{{ $listing->id }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="text-red-500"><i class="fa-solid fa-trash"></i>削除する</button>
+                    </form>
                 </x-card>
             </div>
 
