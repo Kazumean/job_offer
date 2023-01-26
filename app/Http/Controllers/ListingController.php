@@ -54,4 +54,43 @@ class ListingController extends Controller
 
         return redirect('/')->with('message', '求人が追加されました。');
     }
+
+    // 求人情報編集画面を表示する
+    public function edit(Listing $listing) {
+        return view('listings.edit', [
+            'listing' => $listing
+        ]);
+    }
+
+    // 求人情報を編集・更新する
+    public function update(Request $request, Listing $listing) {
+
+        // バリデーション
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => 'required',
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required',
+        ]);
+
+        // 画像データがあれば、public/logosに保存する
+        if($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        // 送信されたデータをデータベースに保存する
+        $listing->update($formFields);
+
+        return back()->with('message', '求人情報が更新されました。');
+    }
+
+    // 求人を削除する
+    public function destroy(Listing $listing) {
+        $listing->delete();
+
+        return redirect('/')->with('message', '求人が削除されました。');
+    }
 }
