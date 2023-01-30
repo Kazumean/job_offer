@@ -51,3 +51,6 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 // ユーザー登録フォーム画面を表示する
 Route::get('/register', [UserController::class, 'create']);
+
+// ユーザーを新規登録する
+Route::post('/users', UserController::class, 'store');
