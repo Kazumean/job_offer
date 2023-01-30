@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -18,10 +20,18 @@ class UserController extends Controller
         $formFields = $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'confirmed', 'min:6'],
+            'password' => 'required| confirmed| min:6',
         ]);
 
         // パスワードをハッシュ化する
         $formFields['password'] = bcrypt($formFields['password']);
+
+        // ユーザーを作成・登録する
+        $user = User::create($formFields);
+
+        // ログインする
+        auth()->login($user);
+
+        return redirect('/')->with('message', 'ユーザーの新規登録およびログインが完了しました。');
     }
 }

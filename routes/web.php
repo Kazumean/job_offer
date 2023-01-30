@@ -53,4 +53,4 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 Route::get('/register', [UserController::class, 'create']);
 
 // ユーザーを新規登録する
-Route::post('/users', UserController::class, 'store');
+Route::post('/users', [UserController::class, 'store']);
