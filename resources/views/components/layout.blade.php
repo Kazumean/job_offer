@@ -39,6 +39,14 @@
                 <a href="/listings/manage" class="hover:text-laravel"><i
                         class="fa-solid fa-gear"></i>求人を管理する</a>
             </li>
+            <li>
+                <form class="inline" method="POST" action="/logout">
+                    @csrf
+                    <button type="submit">
+                        <i class="fa-solid fa-door-closed"></i>ログアウト
+                    </button>
+                </form>
+            </li>
             @else
             <li>
                 <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> 会員登録</a>
