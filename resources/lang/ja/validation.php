@@ -31,7 +31,7 @@ return [
         'array'   => ':attributeは、:min個から:max個の間で指定してください。',
     ],
     'boolean'              => ':attributeは、trueかfalseを指定してください。',
-    'confirmed'            => ':attributeと、確認フィールドとが、一致していません。',
+    'confirmed'            => ':attributeと、確認用フィールドとが、一致していません。',
     'current_password'     => 'パスワードが正しくありません。',
     'date'                 => ':attributeには有効な日付を指定してください。',
     'date_equals'          => ':attributeには、:dateと同じ日付けを指定してください。',
@@ -162,6 +162,9 @@ return [
         'tags' => 'タグ',
         'description' => '仕事内容詳細',
         'logo' => '会社ロゴ',
+        'name' => '氏名',
+        'password' => 'パスワード',
+        'password_confirmation' => '確認用パスワード',
     ],
 
 ];

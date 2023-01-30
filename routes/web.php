@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ListingController;
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,12 @@ Route::put('listings/{listing}', [ListingController::class, 'update']);
 // 求人を削除する
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
 
-
 // 求人の詳細を表示する
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+
+// ユーザー登録フォーム画面を表示する
+Route::get('/register', [UserController::class, 'create']);
+
+// ユーザーを新規登録する
+Route::post('/users', [UserController::class, 'store']);
