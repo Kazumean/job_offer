@@ -31,19 +31,19 @@ use App\Http\Controllers\ListingController;
 Route::get('/', [ListingController::class, 'index']);
 
 // 求人の新規登録画面を表示する
-Route::get('/listings/create', [ListingController::class, 'create']);
+Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
 
 // 求人の登録処理をする
-Route::post('/listings', [ListingController::class, 'store']);
+Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
 
 // 求人情報編集画面を表示する
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
 
 // 求人情報を編集・更新する
-Route::put('listings/{listing}', [ListingController::class, 'update']);
+Route::put('listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
 
 // 求人を削除する
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
 
 // 求人の詳細を表示する
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
@@ -56,10 +56,10 @@ Route::get('/register', [UserController::class, 'create']);
 Route::post('/users', [UserController::class, 'store']);
 
 // ログインフォームを表示する
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
 // ログインする
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 // ログアウトする
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');

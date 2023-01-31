@@ -49,13 +49,14 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        // ユーザー情報があれば、sessionを作成する
+        // ユーザー情報が認証されれば、session IDを再発行する
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
             return redirect('/')->with('message', 'ログインしました。');
         }
 
+        // ユーザー情報が認証されない時は、エラーメッセージを表示させる
         return back()->withErrors(['email' => 'ユーザーが存在しません。'])->onlyInput('email');
     }
 
