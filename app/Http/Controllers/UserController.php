@@ -34,4 +34,19 @@ class UserController extends Controller
 
         return redirect('/')->with('message', 'ユーザーの新規登録およびログインが完了しました。');
     }
+
+    // ログアウトする
+    public function logout(Request $request) {
+
+        // ログアウトする
+        auth()->logout();
+
+        // セッションをクリアし、セッションIDを再発行する
+        $request->session()->invalidate();
+
+        // トークンを再作成する
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('message', 'ログアウトしました。');
+    }
 }

@@ -54,3 +54,6 @@ Route::get('/register', [UserController::class, 'create']);
 
 // ユーザーを新規登録する
 Route::post('/users', [UserController::class, 'store']);
+
+// ログアウトする
+Route::post('/logout', [UserController::class, 'logout']);
