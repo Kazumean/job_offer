@@ -35,6 +35,11 @@ class UserController extends Controller
         return redirect('/')->with('message', 'ユーザーの新規登録およびログインが完了しました。');
     }
 
+    // ログインフォームを表示する
+    public function login() {
+        return view('users.login');
+    }
+
     // ログアウトする
     public function logout(Request $request) {
 
