@@ -50,13 +50,13 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 
 // ユーザー登録フォーム画面を表示する
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 // ユーザーを新規登録する
 Route::post('/users', [UserController::class, 'store']);
 
 // ログインフォームを表示する
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 // ログインする
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
