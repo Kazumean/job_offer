@@ -7,7 +7,7 @@
             <p class="mb-4">求人を投稿するためにログインしてください。</p>
         </header>
 
-        <form method="POST" action="/users/login">
+        <form method="POST" action="/users/authenticate">
             @csrf
 
             <div class="mb-6">

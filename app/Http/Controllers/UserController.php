@@ -40,6 +40,25 @@ class UserController extends Controller
         return view('users.login');
     }
 
+    // ログインする
+    public function authenticate(Request $request) {
+
+        // バリデーション
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required',
+        ]);
+
+        // ユーザー情報があれば、sessionを作成する
+        if(auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message', 'ログインしました。');
+        }
+
+        return back()->withErrors(['email' => 'ユーザーが存在しません。'])->onlyInput('email');
+    }
+
     // ログアウトする
     public function logout(Request $request) {
 
