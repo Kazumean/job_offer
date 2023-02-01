@@ -46,6 +46,8 @@ class ListingController extends Controller
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+
         // 送信されたデータをデータベースに保存する
         Listing::create($formFields);
 
