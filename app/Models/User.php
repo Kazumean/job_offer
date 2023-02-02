@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Listingsテーブルと結合する
+    public function listings() {
+        return $this->hasMany(Listing::class, 'user_id');
+    }
 }
