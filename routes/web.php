@@ -45,6 +45,9 @@ Route::put('listings/{listing}', [ListingController::class, 'update'])->middlewa
 // 求人を削除する
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
 
+// 求人情報の管理ページに遷移する
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
+
 // 求人の詳細を表示する
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
@@ -63,3 +66,4 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 // ログアウトする
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+

@@ -67,6 +67,11 @@ class ListingController extends Controller
     // 求人情報を編集・更新する
     public function update(Request $request, Listing $listing) {
 
+        // ログインしているユーザーが、求人の投稿者であることを確認する
+        if($listing->user_id != auth()->id()) {
+            abort(403, 'ユーザー情報を認証できませんでした。');
+        }
+
         // バリデーション
         $formFields = $request->validate([
             'title' => 'required',
@@ -91,8 +96,21 @@ class ListingController extends Controller
 
     // 求人を削除する
     public function destroy(Listing $listing) {
+
+        // ログインしているユーザーが、求人の投稿者であることを確認する
+        if($listing->user_id != auth()->id()) {
+            abort(403, 'ユーザー情報を認証できませんでした。');
+        }
+
         $listing->delete();
 
         return redirect('/')->with('message', '求人が削除されました。');
+    }
+
+    // 求人情報管理画面を表示する
+    public function manage() {
+        return view('listings.manage', [
+            'listings' => auth()->user()->listings()->get()
+        ]);
     }
 }
