@@ -84,7 +84,7 @@
             </div>
 
             <div class="mb-6">
-                <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">求人情報を更新する</button>
+                <button class="bg-green-700 text-white rounded py-2 px-4 hover:bg-black">求人情報を更新する</button>
 
                 <a href="/" class="text-black ml-4">戻る</a>
             </div>

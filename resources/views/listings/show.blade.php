@@ -20,11 +20,11 @@
                             <div class="text-lg space-y-6">
                                 {{ $listing->description }}
 
-                                <a href="mailto:{{ $listing->email }}" class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">
+                                <a href="mailto:{{ $listing->email }}" class="block bg-amber-500 text-white mt-6 py-2 rounded-xl hover:opacity-80">
                                     <i class="fa-solid fa-envelope"></i>
                                     求人掲載者に問い合わせる</a>
 
-                                <a href="{{ $listing->website }}" target="_blank" class="block bg-black text-white py-2 rounded-xl hover:opacity-80">
+                                <a href="{{ $listing->website }}" target="_blank" class="block bg-green-700 text-white py-2 rounded-xl hover:opacity-80">
                                     <i class="fa-solid fa-globe"></i>会社ホームページを見る</a>
                             </div>
                         </div>
