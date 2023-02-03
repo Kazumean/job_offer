@@ -10,7 +10,7 @@
             placeholder="キーワード"
         />
         <div class="absolute top-2 right-2">
-            <button type="submit" class="h-10 w-20 text-white rounded-lg bg-red-500 hover:bg-red-600">検索</button>
+            <button type="submit" class="h-10 w-20 text-white rounded-lg bg-green-700 hover:bg-red-600">検索</button>
         </div>
     </div>
 </form>
