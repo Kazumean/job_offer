@@ -22,7 +22,7 @@
             },
         };
     </script>
-    <title>やさしい求人 | 働きやすい仕事を探そう！</title>
+    <title>やさしい求人 | 求人をまとめて管理しよう！</title>
 </head>
 
 <body class="mb-48">
