@@ -3,7 +3,7 @@
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">新しい求人を作成する</h2>
-            <p class="mb-4">求人を投稿して求職者と繋がりましょう！</p>
+            <p class="mb-4">求人を投稿して管理しましょう！</p>
         </header>
 
         <form method="POST" action="/listings" enctype="multipart/form-data">

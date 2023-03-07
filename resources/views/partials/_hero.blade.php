@@ -5,13 +5,13 @@
     <h1 class="text-6xl font-bold uppercase text-green-900">やさしい<span class="text-green-900">求人</span>
     </h1>
     <p class="text-2xl text-green-700 font-bold my-4">
-        働きやすいお仕事と出会おう！
+        分かりやすく求人を管理しよう
     </p>
     <div>
         <a
-            href="register.html"
+            href="/register"
             class="inline-block border-2 border-blue-800 text-blue-800 py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
-            >会員登録してお仕事を探す</a
+            >会員登録して求人を投稿する</a
         >
     </div>
 </div>
